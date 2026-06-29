@@ -7,6 +7,8 @@ let package = Package(
     platforms: [.macOS(.v13), .iOS(.v15), .tvOS(.v15), .watchOS(.v10)],
     products: [
         .library(name: "Archive", targets: ["Archive"]),
+        .library(name: "Cliblzma", targets: ["Cliblzma"]),
+        .library(name: "Clibzstd", targets: ["Clibzstd"]),
     ],
     traits: [
         // On macOS, zlib and bzip2 are in the SDK. On Linux, dev packages
