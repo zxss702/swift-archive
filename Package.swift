@@ -60,10 +60,27 @@ let package = Package(
                 "liblzma.pc.in",
                 "liblzma_generic.map",
                 "liblzma_linux.map",
-                "liblzma_w32res.rc"
+                "liblzma_w32res.rc",
+                "check/crc32_x86.S",
+                "check/crc64_x86.S",
+                "check/crc32_tablegen.c",
+                "check/crc64_tablegen.c",
+                "rangecoder/price_tablegen.c",
+                "lzma/fastpos_tablegen.c",
+                "check/crc32_small.c",
+                "check/crc64_small.c"
             ],
             publicHeadersPath: "include",
             cSettings: [
+                .headerSearchPath("."),
+                .headerSearchPath("common"),
+                .headerSearchPath("check"),
+                .headerSearchPath("lz"),
+                .headerSearchPath("lzma"),
+                .headerSearchPath("rangecoder"),
+                .headerSearchPath("simple"),
+                .headerSearchPath("delta"),
+                .headerSearchPath("include"),
                 .define("HAVE_CONFIG_H")
             ]
         ),
