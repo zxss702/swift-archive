@@ -46,7 +46,6 @@ let package = Package(
                 .linkedLibrary("z", .when(traits: ["GzipSupport"])),
                 .linkedLibrary("bz2", .when(platforms: [.macOS, .linux, .windows], traits: ["Bzip2Support"])),
                 .linkedLibrary("lzma", .when(platforms: [.macOS, .linux, .windows], traits: ["LZMASupport"])),
-                .linkedLibrary("zstd", .when(platforms: [.macOS, .linux, .windows], traits: ["ZstdSupport"])),
                 .linkedLibrary("iconv", .when(platforms: [.macOS, .iOS, .tvOS, .watchOS, .visionOS])),
                 .linkedLibrary("crypto", .when(platforms: [.linux])),
             ]
