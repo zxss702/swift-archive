@@ -1,0 +1,6 @@
+module Clibzstd {
+    header "../zstd.h"
+    header "../zdict.h"
+    header "../zstd_errors.h"
+    export *
+}

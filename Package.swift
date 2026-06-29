@@ -84,11 +84,19 @@ let package = Package(
                 .define("HAVE_CONFIG_H")
             ]
         ),
-        .systemLibrary(
+        .target(
             name: "Clibzstd",
-            providers: [
-                .brew(["zstd"]),
-                .apt(["libzstd-dev"])
+            exclude: [
+                "common/zstd_trace.c"
+            ],
+            publicHeadersPath: "include",
+            cSettings: [
+                .headerSearchPath("."),
+                .headerSearchPath("common"),
+                .headerSearchPath("compress"),
+                .headerSearchPath("decompress"),
+                .headerSearchPath("dictBuilder"),
+                .define("ZSTD_MULTITHREAD"),
             ]
         ),
         .target(
