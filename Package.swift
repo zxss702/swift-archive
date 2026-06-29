@@ -53,7 +53,6 @@ let package = Package(
         ),
         .systemLibrary(
             name: "Cliblzma",
-            pkgConfig: "liblzma",
             providers: [
                 .brew(["xz"]),
                 .apt(["liblzma-dev"])
@@ -61,7 +60,6 @@ let package = Package(
         ),
         .systemLibrary(
             name: "Clibzstd",
-            pkgConfig: "libzstd",
             providers: [
                 .brew(["zstd"]),
                 .apt(["libzstd-dev"])
