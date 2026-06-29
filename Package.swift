@@ -45,16 +45,26 @@ let package = Package(
             linkerSettings: [
                 .linkedLibrary("z", .when(traits: ["GzipSupport"])),
                 .linkedLibrary("bz2", .when(platforms: [.macOS, .linux, .windows], traits: ["Bzip2Support"])),
-                .linkedLibrary("lzma", .when(platforms: [.macOS, .linux, .windows], traits: ["LZMASupport"])),
                 .linkedLibrary("iconv", .when(platforms: [.macOS, .iOS, .tvOS, .watchOS, .visionOS])),
                 .linkedLibrary("crypto", .when(platforms: [.linux])),
             ]
         ),
-        .systemLibrary(
+        .target(
             name: "Cliblzma",
-            providers: [
-                .brew(["xz"]),
-                .apt(["liblzma-dev"])
+            exclude: [
+                "Makefile.am",
+                "Makefile.in",
+                "api/Makefile.am",
+                "api/Makefile.in",
+                "validate_map.sh",
+                "liblzma.pc.in",
+                "liblzma_generic.map",
+                "liblzma_linux.map",
+                "liblzma_w32res.rc"
+            ],
+            publicHeadersPath: "include",
+            cSettings: [
+                .define("HAVE_CONFIG_H")
             ]
         ),
         .systemLibrary(

@@ -1,4 +1,4 @@
 module Cliblzma [system] {
-    link "lzma"
+    header "lzma.h"
     export *
 }
